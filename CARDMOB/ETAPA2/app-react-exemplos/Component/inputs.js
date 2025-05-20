@@ -14,20 +14,19 @@ class Inputs extends Component {
     }
     login = (email, pass) => {
         alert(`email: ${email} \npassword: ${pass}`);
-
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <TextInput
+                <TextInput 
                     style={styles.input}
                     underlineColorAndroid="transparent"
                     placeholder="Email"
                     autoCapitalize="none"
                     onChangeText={this.handleEmail}
                 />
-                <TextInput
+                <TextInput 
                     style={styles.input}
                     underlineColorAndroid="transparent"
                     placeholder="Password"
@@ -36,7 +35,7 @@ class Inputs extends Component {
                     secureTextEntry
                     onChangeText={this.handlePassword}
                 />
-                <TouchableOpacity
+                <TouchableOpacity 
                     style={styles.submitButton}
                     onPress={
                         () => this.login(
@@ -45,7 +44,7 @@ class Inputs extends Component {
                         )
                     }
                 >
-                    <Text styles={StyleSheet.submitButtonText}>
+                    <Text style={styles.submitButtonText}>
                         Submit
                     </Text>
                 </TouchableOpacity>
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
         margin: 15,
         height: 40,
         borderColor: '#7a42f4',
-        borderWidth: 1
+        borderWidth: 1,
     },
     submitButton: {
         backgroundColor: '#7a42f4',

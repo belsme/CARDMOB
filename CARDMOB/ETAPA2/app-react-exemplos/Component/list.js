@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
+
 class List extends Component {
     state = {
         names: [
@@ -10,7 +11,7 @@ class List extends Component {
             {id: 3, name: 'Chrischarles'}
         ]
     }
-    alertItemName = (item) => {
+    alertItemName = (item) => { 
         alert(item.name);
     }
 
@@ -21,24 +22,22 @@ class List extends Component {
                     Lista de itens "clicáveis"
                 </Text>
                 {
-                 this.state.names.map((item, index) => (
-                    <TouchableOpacity
-                    key={item.id}
-                    style={styles.container}
-                    onPress={() => this.alertItemName(item)}
-                    >
-                        <Text style={styles.text}>
-                             {item.name}
-                        </Text>
-                    
-                   </TouchableOpacity> 
-                    ))   
+                    this.state.names.map((item, index) => (
+                        <TouchableOpacity 
+                            key={item.id}
+                            style={styles.container}
+                            onPress={() => this.alertItemName(item)}
+                        >
+                            <Text style={styles.text}>
+                                {item.name}
+                            </Text>
+                        </TouchableOpacity> 
+                    ))
                 }
             </View>
-        )
+        );
     }
 }
-
 export default List;
 
 const styles = StyleSheet.create({
@@ -49,6 +48,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        color: 'black',
+        color: '#4f603c',
     }
-})
+});
