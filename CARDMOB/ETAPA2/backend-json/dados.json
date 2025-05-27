@@ -1,12 +1,8 @@
 {
   "items": [
     {
-      "id": "ed88",
-      "text": "novo item"
-    },
-    {
-      "id": "63a4",
-      "text": "novo item"
+      "text": "nome",
+      "id": "63a4"
     },
     {
       "id": "0baa",
