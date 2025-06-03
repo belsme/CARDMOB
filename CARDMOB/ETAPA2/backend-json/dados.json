@@ -1,16 +1,19 @@
 {
-  "items": [
+  "compras": [
     {
-      "text": "nome",
-      "id": "63a4"
+      "id": "2378",
+      "item": "Leite",
+      "quantidade": 3
     },
     {
-      "id": "0baa",
-      "text": "novo item"
+      "id": "a72a",
+      "item": "melancia",
+      "quantidade": 4
     },
     {
-      "id": "0ae1",
-      "text": "novo item"
+      "id": "8786",
+      "item": "vaca",
+      "quantidade": 5
     }
   ]
 }
