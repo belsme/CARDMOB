@@ -4,6 +4,8 @@ import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { fakeLogin } from "../services/authservices"
 import { useAuth } from "../contexts/AuthContext"
 
+import { SafeAreaView } from "react-native-safe-area-context";
+
 export default function LoginScreen({ navigation }: any) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,6 +24,7 @@ export default function LoginScreen({ navigation }: any) {
     };
 
     return (
+        <SafeAreaView style={styles.container }>
         <View style={styles.container}>
             <Text>Email:</Text>
             <TextInput
@@ -47,6 +50,7 @@ export default function LoginScreen({ navigation }: any) {
                 onPress={() => navigation.navigate('Register')}
             />
         </View>
+        </SafeAreaView>
     );
 }
 
