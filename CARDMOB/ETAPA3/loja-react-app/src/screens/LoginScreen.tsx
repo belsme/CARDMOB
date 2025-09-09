@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import React, { use, useState } from "react";
+import { View, TextInput, Button, StyleSheet, Text, SafeAreaView} from "react-native";
 
-import { fakeLogin } from "../services/authservices"
-import { useAuth } from "../contexts/AuthContext"
-
-import { SafeAreaView } from "react-native-safe-area-context";
+import { requestLogin } from "../services/authservices";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function LoginScreen({ navigation }: any) {
     const [email, setEmail] = useState('');
@@ -14,41 +12,43 @@ export default function LoginScreen({ navigation }: any) {
 
     const handleLogin = async () => {
         try {
-            // Lógica de login / conexão com o backend
-            const token = await fakeLogin(email, password)
+            // Lógica de login / conexão com backend.
+            const token = await requestLogin(email, password);
             login(token);
             console.log('Login ok');
         } catch (err: any) {
             setError(err);
         }
-    };
+    }
 
     return (
-        <SafeAreaView style={styles.container }>
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
+        <View>
             <Text>Email:</Text>
-            <TextInput
+            <TextInput 
                 style={styles.input}
-                placeholder="Email"
                 value={email}
                 onChangeText={setEmail}
                 autoCapitalize="none"
             />
             <Text>Senha:</Text>
-            <TextInput
+            <TextInput 
                 style={styles.input}
-                placeholder="Senha"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
             />
-            {/* <Button title="Entrar" onPress={handleLogin} /> */}
-            {error ? <Text style={{ color: 'red' }}>{error}</Text> : null}
+            { error ? 
+                <Text 
+                    style={{ color: 'red'}}
+                >
+                {error}
+                </Text> :
+                null
+            }
             <Button title="Entrar" onPress={handleLogin} />
-            <Button
-                title="Registrar"
-                onPress={() => navigation.navigate('Register')}
-            />
+            <Button title="Registrar" onPress={ () => navigation.navigate('Register') }/>
+
         </View>
         </SafeAreaView>
     );
