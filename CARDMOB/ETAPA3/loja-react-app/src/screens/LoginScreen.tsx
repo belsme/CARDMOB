@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { View, TextInput, Button, StyleSheet, Text, SafeAreaView} from "react-native";
 
-import { requestLogin } from "../services/authservices";
+import { requestLogin } from "../services/authService";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function LoginScreen({ navigation }: any) {

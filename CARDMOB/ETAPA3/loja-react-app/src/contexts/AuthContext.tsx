@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext} from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type AuthContextType = {
@@ -7,19 +7,16 @@ type AuthContextType = {
     logout: () => Promise<void>;
     loading: boolean;
 };
-
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
-    children,
-}) => {
-    // Lógica do context provider
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    // Lógica do context provider.
     const [user, setUser] = useState<{ token: string } | null>(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+    useEffect( () => {
         const loadUser = async () => {
-            const token = await AsyncStorage.getItem('userToken');
+            const token = await AsyncStorage.getItem('token');
             if (token) {
                 setUser({ token });
             }
@@ -27,9 +24,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         };
         loadUser();
     }, []);
+
     const login = async (token: string) => {
         await AsyncStorage.setItem('token', token);
-        setUser({ token });
+        setUser({token});
     }
 
     const logout = async () => {
@@ -38,11 +36,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     }
 
     return (
-        <AuthContext
-        value={{ user, login, logout, loading }}>
+        <AuthContext 
+            value={{ user, login, logout, loading }}
+        >
             {children}
         </AuthContext>
-    )
+    );
 };
 
 export const useAuth = () => useContext(AuthContext);
