@@ -1,0 +1,19 @@
+{
+  "compras": [
+    {
+      "id": "2378",
+      "item": "Leite",
+      "quantidade": 3
+    },
+    {
+      "id": "a72a",
+      "item": "melancia",
+      "quantidade": 4
+    },
+    {
+      "id": "8786",
+      "item": "vaca",
+      "quantidade": 5
+    }
+  ]
+}
