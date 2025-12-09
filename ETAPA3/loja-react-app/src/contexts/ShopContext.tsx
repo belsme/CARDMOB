@@ -61,7 +61,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode}> = ({ children}
     }
 
 // Image picker.
-const pickImage = async () => {
+    const pickImage = async (): Promise<string> => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status === 'granted') {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -73,6 +73,7 @@ const pickImage = async () => {
             const imageUri = result.assets[0].uri;
             console.log('Image uri', imageUri);
             setNewImage(imageUri);
+            return Promise.resolve(imageUri);
         }
         else {
             console.log('A seleção de imagem foi cancelada');
